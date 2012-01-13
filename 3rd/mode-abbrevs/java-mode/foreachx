@@ -1,0 +1,3 @@
+for (<QUERY "type: "> <QUERY "iterator: "> : <QUERY "container: ">) {
+    <cursor>
+}
