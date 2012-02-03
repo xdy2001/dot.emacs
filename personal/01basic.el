@@ -1,48 +1,19 @@
-;;=============================custom variables============================
+;; =============================custom variables============================
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(browse-url-netscape-program "firefox")
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "stroustrup") (c++-mode . "stroustrup") (java-mode . "java") (other . "stroustrup"))))
  '(case-fold-search t)
  '(completion-on-separator-character t)
-;'(ecb-compile-window-height 12)
-; '(ecb-compile-window-width (quote edit-window))
-; '(ecb-layout-name "left15")
-; '(ecb-layout-window-sizes (quote (("left15" (0.2928571428571429 . 0.32) (0.2928571428571429 . 0.66)))))
-; '(ecb-options-version "2.32")
-; '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
-; '(ecb-source-path (quote ("/home/hannibal/prj/devsite/mobile/midp2.0fcs/src" ("/" "/") "/home/hannibal/prj/devsite/mobile/qt-2.3.7/src")))
  '(global-font-lock-mode t nil (font-lock))
  '(load-home-init-file t t)
-;'(semantic-default-c-path (quote ("/usr/include" "/usr/include/c++/3.4")))
-; '(semantic-default-c-path (quote ("/usr/include" "/usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/g++-v3")))
-; '(semantic-idle-scheduler-idle-time 1)
-; '(semanticdb-find-default-throttle (quote (project system recursive omniscience)))
- '(speedbar-sort-tags t)
  '(transient-mark-mode t)
  '(mac-command-modifier 'meta))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
 ;;=========================================================================
 
 ;; Set font
 ;; (set-default-font "Bitstream Vera Sans Mono")
 ;; (set-fontset-font (frame-parameter nil 'font)
 ;;                  'han '("STHeiti" . "unicode-bmp"))
-
-;;===========================Gentoo use only============================
-;;====Refer to /usr/share/emacs/site-lisp/site-gentoo.el for detail=====
-;;======================================================================
-(load "site-gentoo.el" nil t t)
-;;======================================================================
 
 ;; Emacs tabbar
 (if (display-graphic-p)
@@ -196,9 +167,7 @@ that was stored with ska-point-to-register."
 ;; No indent by tabs
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
-(setq tab-stop-list ())
-(loop for x downfrom 40 to 1 do
-      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+(setq tab-stop-list (number-sequence 4 120 4))
 
 ;; For Chinese punctuation
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
@@ -291,7 +260,7 @@ that was stored with ska-point-to-register."
 (mouse-avoidance-mode 'animate)
 
 ;; Redo support
-(require 'redo)
+(require 'redo+)
 (global-set-key (kbd "C-?") 'redo)
 
 ;; At most 80 charactors per line

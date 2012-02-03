@@ -7,6 +7,11 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/personal/color-theme/console"))
 ;;=========================================================================
 
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+                          ("gnu" . "http://elpa.gnu.org/packages/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
+
 (mapc 'load 
       (directory-files 
        (expand-file-name "~/.emacs.d/personal") t "\\.el$"))
@@ -16,7 +21,7 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+;;(when
+;;    (load
+;;     (expand-file-name "~/.emacs.d/elpa/package.el"))
+;;  (package-initialize))
