@@ -79,7 +79,8 @@ to test whether the root directory is reached."
 (global-set-key (kbd "M-n") 'fld-next)
 (msf-abbrev-load)
 ;(msf-abbrev-load-tree "")
-
+;; ensure abbrev mode is always on
+(setq-default abbrev-mode t)
 ;; Do not save abbrevs file automatically
 (setq save-abbrevs nil)
 

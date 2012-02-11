@@ -52,14 +52,15 @@
 ;; Use a single buffer for dired mode
 (require 'dired-single)
 (defun my-dired-init ()
-  "Bunch of stuff to run for dired,
-either immediately or when it'sloaded."
-  ;; add other stuff here
-  (define-key dired-mode-map [return] 'joc-dired-single-buffer)
-  (define-key dired-mode-map [mouse-1] 'joc-dired-single-buffer-mouse)
+  "Bunch of stuff to run for dired, either immediately or when it's
+        loaded."
+  ;; <add other stuff here>
+  (define-key dired-mode-map [return] 'dired-single-buffer)
+  (define-key dired-mode-map [mouse-1] 'dired-single-buffer-mouse)
   (define-key dired-mode-map "^"
     (function
-     (lambda nil (interactive) (joc-dired-single-buffer "..")))))
+     (lambda nil (interactive) (dired-single-buffer "..")))))
+
 ;; if dired's already loaded, then the keymap will be bound
 (if (boundp 'dired-mode-map)
     ;; we're good to go; just add our bindings
@@ -144,8 +145,9 @@ that was stored with ska-point-to-register."
 (defun my-newline-pre ()
   "New line before current line."
   (interactive)
-  (move-end-of-line 0)
+  (move-beginning-of-line 1)
   (newline)
+  (forward-line -1)
   )
 (global-set-key (kbd "C-S-o") 'my-newline-pre)
 
@@ -348,7 +350,9 @@ that was stored with ska-point-to-register."
    ("\\.cfm$" . html-mode)
    ("gnus" . emacs-lisp-mode)
    ("\\.idl$" . idl-mode)
-   ("\\.hs$" . haskell-mode)))
+   ("\\.hs$" . haskell-mode)
+   ("Rakefile" . ruby-mode)
+   ("Gemfile" . ruby-mode)))
 
 ;; Kill whole line
 (setq-default kill-whole-line t)
