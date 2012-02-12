@@ -1,4 +1,5 @@
 (require 'ruby-mode)
+(require 'ruby-end)
 
 (add-hook 'ruby-mode-hook
           '(lambda ()

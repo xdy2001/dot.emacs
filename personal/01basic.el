@@ -1,4 +1,4 @@
-;; =============================custom variables============================
+;; ============================= customize ============================
 (custom-set-variables
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "stroustrup") (c++-mode . "stroustrup") (java-mode . "java") (other . "stroustrup"))))
@@ -8,6 +8,11 @@
  '(load-home-init-file t t)
  '(transient-mark-mode t)
  '(mac-command-modifier 'meta))
+
+(custom-set-faces
+ ;; not sure why i can not do this in theme file
+ '(tabbar-default ((t (:inherit variable-pitch :background "gray50" :foreground "grey75" :height 1.0))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "Black" :box (:line-width 1 :color "white" :style pressed-button))))))
 ;;=========================================================================
 
 ;; Set font
@@ -96,33 +101,11 @@ that was stored with ska-point-to-register."
     (jump-to-register 8)
     (set-register 8 tmp)))
 
-;; Go to the next charactor
-;; (defun wy-go-to-char (n char)
-;;   "Move forward to Nth occurence of CHAR.
-;; Typing `wy-go-to-char-key' again will move forwad to the next Nth
-;; occurence of CHAR."
-;;   (interactive "p\ncGo to char: ")
-;;   (search-forward (string char) nil nil n)
-;;   (while (char-equal (read-char)
-;; 		     char)
-;;     (search-forward (string char) nil nil n))
-;;   (setq unread-command-events (list last-input-event)))
-(defun wy-go-to-char (n char)
-  "Move forward to Nth occurence of CHAR.
- yping y-go-to-char-key' again will move forwad to the next Nth
- occurence of CHAR."
-  (interactive "p\ncGo to char: ")
-  (let ((oldpnt (point)))
-    (search-forward (string char) nil nil n)
-    (condition-case nil
-        (while (progn
-                 (setq char (read-char))
-                 (cond ((char-equal char ?\^M)
-                        nil)
-                       (t (search-forward (string char) nil nil n)))))
-      (quit (goto-char oldpnt)))))
-;;;;NOTE: the code below shows how to define a new key map
-(define-key global-map (kbd "C-c a") 'wy-go-to-char)
+(require 'iy-go-to-char)
+(global-set-key (kbd "C-c f") 'iy-go-to-char)
+(global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
+(global-set-key (kbd "C-c ;") 'iy-go-to-char-continue)
+(global-set-key (kbd "C-c ,") 'iy-go-to-char-continue-backward)
 
 ;; Setup UTF-8 environment
 (set-terminal-coding-system 'utf-8)
@@ -279,17 +262,6 @@ that was stored with ska-point-to-register."
 (global-set-key '[M-down] 'pager-row-down)
 (global-set-key '[M-kp-2] 'pager-row-down)
 
-;; Set colors
-(require 'color-theme)
-(setq color-themes-directory-name (expand-file-name "~/.emacs.d/personal/color-theme"))
-(if (display-graphic-p)
-    (setq color-themes-directory-name
-          (concat color-themes-directory-name "/x"))
-  (setq color-themes-directory-name
-        (concat color-themes-directory-name "/console")))
-(load "mine")
-(my-color-theme)
-
 ;; Other global set keys
 (global-set-key (kbd "C-c r") 'query-replace-regexp)
 (global-set-key (kbd "C-;") 'set-mark-command)
@@ -387,3 +359,16 @@ that was stored with ska-point-to-register."
 (global-set-key (kbd "C-c h") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-c n") 'highlight-symbol-next)
 (global-set-key (kbd "C-c p") 'highlight-symbol-prev)
+
+;; Set colors
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-charcoal-black)
+;; (setq color-themes-directory-name (expand-file-name "~/.emacs.d/personal/color-theme"))
+;; (if (display-graphic-p)
+;;     (setq color-themes-directory-name
+;;           (concat color-themes-directory-name "/x"))
+;;   (setq color-themes-directory-name
+;;         (concat color-themes-directory-name "/console")))
+;; (load "mine")
+;; (my-color-theme)
