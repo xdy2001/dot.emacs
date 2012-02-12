@@ -9,11 +9,16 @@
  '(transient-mark-mode t)
  '(mac-command-modifier 'meta))
 
-(custom-set-faces
- ;; not sure why i can not do this in theme file
- '(tabbar-default ((t (:inherit variable-pitch :background "gray50" :foreground "grey75" :height 1.0))))
- '(tabbar-selected ((t (:inherit tabbar-default :foreground "Yellow" :box (:line-width 1 :color "white" :style pressed-button))))))
+;; (custom-set-faces
+;;  ;; not sure why i can not do this in theme file
+;;  '(tabbar-default ((t (:inherit variable-pitch :background "gray50" :foreground "grey75" :height 1.0))))
+;;  '(tabbar-selected ((t (:inherit tabbar-default :foreground "Yellow" :box (:line-width 1 :color "white" :style pressed-button))))))
 ;;=========================================================================
+
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+                          ("gnu" . "http://elpa.gnu.org/packages/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
 
 ;; Set font
 ;; (set-default-font "Bitstream Vera Sans Mono")
@@ -362,13 +367,5 @@ that was stored with ska-point-to-register."
 
 ;; Set colors
 (require 'color-theme)
-(color-theme-initialize)
-(color-theme-charcoal-black)
-;; (setq color-themes-directory-name (expand-file-name "~/.emacs.d/personal/color-theme"))
-;; (if (display-graphic-p)
-;;     (setq color-themes-directory-name
-;;           (concat color-themes-directory-name "/x"))
-;;   (setq color-themes-directory-name
-;;         (concat color-themes-directory-name "/console")))
-;; (load "mine")
-;; (my-color-theme)
+(load "mine")
+(my-color-theme)
