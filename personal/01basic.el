@@ -16,9 +16,11 @@
 (package-initialize)
 
 ;; Set font
-;; (set-default-font "Bitstream Vera Sans Mono")
-;; (set-fontset-font (frame-parameter nil 'font)
-;;                  'han '("STHeiti" . "unicode-bmp"))
+(if (not (eq system-type 'darwin))
+    (progn
+      (set-default-font "DejaVu Sans Mono-10")
+      (set-fontset-font (frame-parameter nil 'font)
+                        'han '("WenQuanYi Zen Hei Mono" . "unicode-bmp"))))
 
 ;; Emacs tabbar
 (if (display-graphic-p)
