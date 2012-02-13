@@ -8,11 +8,6 @@
  '(load-home-init-file t t)
  '(transient-mark-mode t)
  '(mac-command-modifier 'meta))
-
-;; (custom-set-faces
-;;  ;; not sure why i can not do this in theme file
-;;  '(tabbar-default ((t (:inherit variable-pitch :background "gray50" :foreground "grey75" :height 1.0))))
-;;  '(tabbar-selected ((t (:inherit tabbar-default :foreground "Yellow" :box (:line-width 1 :color "white" :style pressed-button))))))
 ;;=========================================================================
 
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
