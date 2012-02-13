@@ -281,7 +281,7 @@
      (speedbar-selected-face ((t (:foreground "red" :underline t))))
      (speedbar-separator-face ((t (:background "blue" :foreground "white" :overline "gray"))))
      (speedbar-tag-face ((t (:foreground "brown"))))
-     (tabbar-default ((t (:inherit variable-pitch :background "gray40" :foreground "grey75" :height 1.0))))
+     (tabbar-default ((t (:inherit default :background "gray40" :foreground "grey75" :height 1.0))))
      (tabbar-selected ((t (:inherit tabbar-default :foreground "Yellow" :box (:line-width 1 :color "white" :style pressed-button)))))
      (tool-bar ((t (:background "#ede9e3" :foreground "#000000" :box (:line-width 1 :style released-button)))))
      (tooltip ((t (:family "helv" :background "lightyellow" :foreground "black"))))
