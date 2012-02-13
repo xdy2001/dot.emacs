@@ -92,3 +92,7 @@ to test whether the root directory is reached."
 (setq auto-insert-directory (expand-file-name "~/.emacs.d/personal/templates/"))
 (define-auto-insert "\\.hh\\'" "template.hh")
 (define-auto-insert "\\.cc\\'" "template.cc")
+
+;; Autopair
+(require 'autopair)
+(autopair-global-mode)

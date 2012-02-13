@@ -23,7 +23,6 @@
 ;; Emacs tabbar
 (if (display-graphic-p)
     (progn
-      (require 'tabbar)
       (tabbar-mode)
       (global-set-key (kbd "<C-M-up>") 'tabbar-backward-group)
       (global-set-key (kbd "<C-M-down>") 'tabbar-forward-group)
@@ -216,7 +215,8 @@ that was stored with ska-point-to-register."
 (tool-bar-mode -1)
 
 ;; No menu
-;; (menu-bar-mode -1)
+(if (not (eq system-type 'darwin))
+    (menu-bar-mode -1))
 
 ;; No scroll bar
 (scroll-bar-mode -1)
@@ -298,8 +298,7 @@ that was stored with ska-point-to-register."
 (add-hook 'shell-mode-hook 'my-shell-mode-hook-func)
 (defun my-shell-mode-hook-func ()
   (set-process-sentinel (get-buffer-process (current-buffer))
-                        'my-shell-mode-kill-buffer-on-exit)
-  )
+                        'my-shell-mode-kill-buffer-on-exit))
 (defun my-shell-mode-kill-buffer-on-exit (process state)
   (message "%s" state)
   (if (or
