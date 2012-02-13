@@ -1,3 +1,0 @@
-public <cursor> get() {
-    return <endpoint>
-}
