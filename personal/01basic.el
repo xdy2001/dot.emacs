@@ -218,7 +218,7 @@ that was stored with ska-point-to-register."
 (tool-bar-mode -1)
 
 ;; No menu
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; No scroll bar
 (scroll-bar-mode -1)
