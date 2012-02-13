@@ -1,10 +1,8 @@
 ;;============================load paths===================================
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/3rd"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/gentoo"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/personal"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/personal/color-theme/x"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/personal/color-theme/console"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/personal/themes"))
 ;;=========================================================================
 
 (mapc 'load 
