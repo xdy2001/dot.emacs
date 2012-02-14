@@ -72,17 +72,17 @@ to test whether the root directory is reached."
 ;(setq ecb-layout-name "hannibal")
 
 ;; I got this package from "http://www.bloomington.in.us/~brutt/msf-abbrev.html"
-(require 'msf-abbrev)
+;; (require 'msf-abbrev)
 ;; (setq msf-abbrev-verbose t) ;; optional
-(setq msf-abbrev-root (expand-file-name "~/.emacs.d/3rd/mode-abbrevs"))
-(global-set-key (kbd "M-p") 'fld-prev)
-(global-set-key (kbd "M-n") 'fld-next)
-(msf-abbrev-load)
+;; (setq msf-abbrev-root (expand-file-name "~/.emacs.d/3rd/mode-abbrevs"))
+;; (global-set-key (kbd "M-p") 'fld-prev)
+;; (global-set-key (kbd "M-n") 'fld-next)
+;; (msf-abbrev-load)
 ;(msf-abbrev-load-tree "")
 ;; ensure abbrev mode is always on
-(setq-default abbrev-mode t)
+;; (setq-default abbrev-mode t)
 ;; Do not save abbrevs file automatically
-(setq save-abbrevs nil)
+;; (setq save-abbrevs nil)
 
 ;; Auto insert
 (require 'autoinsert)
@@ -96,3 +96,6 @@ to test whether the root directory is reached."
 ;; Autopair
 (require 'autopair)
 (autopair-global-mode)
+
+;; Yasnippet to replace msf-abbrev which is rather dead
+(require 'yasnippet)

@@ -160,9 +160,9 @@ that was stored with ska-point-to-register."
 (setq sentence-end-double-space nil)
 
 ;; Major mode
-(setq major-mode 'text-mode)
+(setq initial-major-mode 'text-mode)
+(setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-screen-lines-mode)
-;;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; User information
 (setq user-full-name "Liang Hongxin")
@@ -365,3 +365,7 @@ that was stored with ska-point-to-register."
 (require 'color-theme)
 (load "mine")
 (my-color-theme)
+
+;; Customize moving
+(global-set-key (kbd "C-a") 'beginning-of-line)
+(global-set-key (kbd "C-e") 'end-of-line)

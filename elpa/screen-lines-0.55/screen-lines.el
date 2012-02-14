@@ -9,7 +9,7 @@
 ;; Description:   a minor mode for screen-line-based point motion
 ;; Compatibility: GNU Emacs 20.7.2, XEmacs 21.1.12
 ;; URL: http://homepage1.nifty.com/bmonkey/emacs/elisp/screen-lines.el
-;; $Revision: 0.55 $
+;; Version: 0.55
 
 ;; This file is NOT part of GNU Emacs.
 
