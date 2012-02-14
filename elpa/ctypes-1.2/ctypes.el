@@ -1734,4 +1734,4 @@ of RULES."
 
 (run-hooks 'ctypes-load-hook)
 
-;; ctypes.el ends here.
+;;; ctypes.el ends here

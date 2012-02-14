@@ -1,18 +1,21 @@
-;;; Use raw text to fetch this code, see EmacsForMoinMoin for tutorial and discussion.
-
-;;; Download link: http://moinmo.in/EmacsForMoinMoin/MoinMoinMode?action=raw
-
 ;;; moinmoin-mode.el --- a major mode to edit MoinMoin wiki pages
 
-;; Written by ASK, distributed under GPL
-
 ;; Filename:      moinmoin-mode.el
+;; Author:        ASK
 ;; Keywords:      moinmoin, wiki
 ;; Description:   a major mode to edit MoinMoin wiki pages
+;; Version: 1.0
+;; Package-Requires: ((screen-lines "0.55"))
 ;; Compatibility: GNU Emacs 22.0.50.1 (probably others)
 ;; Last modified: 2006-04-15
 
 ;; This file is NOT part of GNU Emacs.
+
+;;; Commentary:
+
+;; Use raw text to fetch this code, see EmacsForMoinMoin for tutorial and discussion.
+;; Download link: http://moinmo.in/EmacsForMoinMoin/MoinMoinMode?action=raw
+;; Written by ASK, distributed under GPL
 
 (require 'screen-lines) ; uses screen-lines.el by Yuji Minejima, tested with 0.55
 
@@ -580,3 +583,4 @@ different go to the beginning of the line first."
 (add-to-list 'auto-mode-alist '("\\.wiki$" . moinmoin-mode))
 
 (provide 'moinmoin-mode)
+;;; moinmoin-mode.el ends here
