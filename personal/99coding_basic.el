@@ -99,3 +99,11 @@ to test whether the root directory is reached."
 
 ;; Yasnippet to replace msf-abbrev which is rather dead
 (require 'yasnippet)
+
+;; Auto complete
+(add-to-list 'load-path "~/.emacs.d/3rd/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/3rd/auto-complete/ac-dict")
+(ac-config-default)
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
