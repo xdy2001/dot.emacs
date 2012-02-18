@@ -101,9 +101,9 @@ to test whether the root directory is reached."
 (require 'yasnippet)
 
 ;; Auto complete
-(add-to-list 'load-path "~/.emacs.d/3rd/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/3rd/auto-complete-1.3.1")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/3rd/auto-complete/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/3rd/auto-complete-1.3.1/ac-dict")
 (ac-config-default)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
