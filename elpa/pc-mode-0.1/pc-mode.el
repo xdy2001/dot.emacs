@@ -4,7 +4,7 @@
 ;; Copyright (C) 2007-2007 Liang Hongxin
 
 ;; Filename: pc-mode.el
-;; Maintainer: Honnix Liang <hxliang1982@gmail.com>
+;; Author: Honnix Liang <hxliang1982@gmail.com>
 ;; Keywords: pc languages
 ;; Version: 0.1
 ;; Created: 2007-03-27

@@ -98,8 +98,11 @@ to test whether the root directory is reached."
 (autopair-global-mode)
 
 ;; Yasnippet to replace msf-abbrev which is rather dead
+(add-to-list 'load-path "~/.emacs.d/3rd/yasnippet")
 (require 'yasnippet)
-(yas/global-mode)
+(setq yas/snippet-dirs '("~/.emacs.d/3rd/yasnippet/snippets"
+                         "~/.emacs.d/personal/snippets"))
+(yas/global-mode 1)
 
 ;; Auto complete
 (add-to-list 'load-path "~/.emacs.d/3rd/auto-complete-1.3.1")

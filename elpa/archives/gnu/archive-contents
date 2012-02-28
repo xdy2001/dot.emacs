@@ -6,7 +6,7 @@
       [(1 0)
        nil "Edit all lines matching a given regexp" single])
  (ampc .
-       [(0 1)
+       [(0 1 1)
 	nil "Asynchronous Music Player Controller" single])
  (auctex .
 	 [(11 86)
@@ -60,7 +60,7 @@
 	 [(0 2)
 	  nil "OAuth 2.0 Authorization Protocol" single])
  (org .
-      [(20120213)
+      [(20120216)
        nil "Outline-based notes management and organizer" tar])
  (quarter-plane .
 		[(0 1)
