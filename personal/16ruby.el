@@ -10,4 +10,5 @@
   (local-unset-key (kbd "C-c C-c")))
 
 (add-to-list 'load-path "~/.emacs.d/3rd/ruby-debug-extra")
+(setq rdebug-populate-common-keys-function 'rdebug-populate-common-keys-eclipse)
 (require 'rdebug)
