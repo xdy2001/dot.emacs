@@ -369,3 +369,6 @@ that was stored with ska-point-to-register."
 ;; Customize moving
 (global-set-key (kbd "C-a") 'beginning-of-line)
 (global-set-key (kbd "C-e") 'end-of-line)
+
+;; Empty initial scratch buffer
+(setq initial-scratch-message nil)
