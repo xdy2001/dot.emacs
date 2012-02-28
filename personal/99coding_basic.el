@@ -1,47 +1,47 @@
 ;; Execute by pressing F5
-(global-set-key [f5] 'my-run)
-(defun my-run (&optional arg)
-  (interactive "P")
-  (let ((file (find-proper-file '(".run"))))
-    (when arg
-      (with-temp-file file
-        (insert (read-from-minibuffer "Shell Command: " nil nil nil 'shell-command-history))))
-    (save-some-buffers)
-    (if (not (file-readable-p file))
-        (message "no .run file found.")
-      (let* ((default-directory (file-name-directory file))
-             (buffer (get-buffer-create (concat default-directory "-myrun"))))
-        (with-current-buffer buffer
-          (erase-buffer)) (start-process-shell-command
-         "myrun"
-         buffer
-         shell-file-name
-         ".run")
-        (if (one-window-p)
-            (split-window))
-        (set-window-buffer (next-window) buffer)
-        ))))
-(defun find-proper-file ( candidate-file-list &optional root-regexp)
-  "search one of candidate file in the candidate-file-list. root-regexp is used
-to test whether the root directory is reached."
-  (catch 'found
-    (let ((dir (file-name-as-directory (expand-file-name default-directory))))
-      (while (not (string-match (or root-regexp
-                                    (mapconcat
-                                     'identity
-                                     '("\\`[a-zA-Z]:/\\'"
-                                       "\\`/\\'"
-                                       "\\`/[^/:]+:/\\'")
-                                     "\\|"))
-                                dir))
-        (mapc (lambda (file)
-                (if (file-exists-p (concat dir file))
-                    (throw 'found (concat dir file))))
-              candidate-file-list)
-        (setq dir (file-name-as-directory
-                   (expand-file-name
-                    (concat  dir "..")))))
-      (concat (file-name-as-directory (expand-file-name default-directory)) (car candidate-file-list)))))
+;; (global-set-key [f5] 'my-run)
+;; (defun my-run (&optional arg)
+;;   (interactive "P")
+;;   (let ((file (find-proper-file '(".run"))))
+;;     (when arg
+;;       (with-temp-file file
+;;         (insert (read-from-minibuffer "Shell Command: " nil nil nil 'shell-command-history))))
+;;     (save-some-buffers)
+;;     (if (not (file-readable-p file))
+;;         (message "no .run file found.")
+;;       (let* ((default-directory (file-name-directory file))
+;;              (buffer (get-buffer-create (concat default-directory "-myrun"))))
+;;         (with-current-buffer buffer
+;;           (erase-buffer)) (start-process-shell-command
+;;          "myrun"
+;;          buffer
+;;          shell-file-name
+;;          ".run")
+;;         (if (one-window-p)
+;;             (split-window))
+;;         (set-window-buffer (next-window) buffer)
+;;         ))))
+;; (defun find-proper-file ( candidate-file-list &optional root-regexp)
+;;   "search one of candidate file in the candidate-file-list. root-regexp is used
+;; to test whether the root directory is reached."
+;;   (catch 'found
+;;     (let ((dir (file-name-as-directory (expand-file-name default-directory))))
+;;       (while (not (string-match (or root-regexp
+;;                                     (mapconcat
+;;                                      'identity
+;;                                      '("\\`[a-zA-Z]:/\\'"
+;;                                        "\\`/\\'"
+;;                                        "\\`/[^/:]+:/\\'")
+;;                                      "\\|"))
+;;                                 dir))
+;;         (mapc (lambda (file)
+;;                 (if (file-exists-p (concat dir file))
+;;                     (throw 'found (concat dir file))))
+;;               candidate-file-list)
+;;         (setq dir (file-name-as-directory
+;;                    (expand-file-name
+;;                     (concat  dir "..")))))
+;;       (concat (file-name-as-directory (expand-file-name default-directory)) (car candidate-file-list)))))
 
 ;; Use '%' to match parentheses
 (global-set-key (kbd "C-%") 'match-paren)
