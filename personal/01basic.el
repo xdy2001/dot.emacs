@@ -291,10 +291,7 @@ that was stored with ska-point-to-register."
         try-complete-lisp-symbol))
 
 (require 'tramp)
-(setq tramp-default-method "scp")
-(add-to-list 'tramp-default-method-alist '("" "honnix" "ssh"))
-(add-to-list 'tramp-default-method-alist
-             '("\\`localhost\\'" "\\`root\\'" "su"))
+(setq tramp-default-method "ssh")
 
 ;; Kill shell buffer when shell exits
 (add-hook 'shell-mode-hook 'my-shell-mode-hook-func)
