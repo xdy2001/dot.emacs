@@ -322,7 +322,8 @@ that was stored with ska-point-to-register."
    ("\\.idl$" . idl-mode)
    ("\\.hs$" . haskell-mode)
    ("Rakefile" . ruby-mode)
-   ("Gemfile" . ruby-mode)))
+   ("Gemfile" . ruby-mode)
+   ("\\.ru" . ruby-mode)))
 
 ;; Kill whole line
 (setq-default kill-whole-line t)
