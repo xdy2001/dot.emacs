@@ -291,10 +291,7 @@ that was stored with ska-point-to-register."
         try-complete-lisp-symbol))
 
 (require 'tramp)
-(setq tramp-default-method "scp")
-(add-to-list 'tramp-default-method-alist '("" "honnix" "ssh"))
-(add-to-list 'tramp-default-method-alist
-             '("\\`localhost\\'" "\\`root\\'" "su"))
+(setq tramp-default-method "ssh")
 
 ;; Kill shell buffer when shell exits
 (add-hook 'shell-mode-hook 'my-shell-mode-hook-func)
@@ -325,7 +322,8 @@ that was stored with ska-point-to-register."
    ("\\.idl$" . idl-mode)
    ("\\.hs$" . haskell-mode)
    ("Rakefile" . ruby-mode)
-   ("Gemfile" . ruby-mode)))
+   ("Gemfile" . ruby-mode)
+   ("\\.ru" . ruby-mode)))
 
 ;; Kill whole line
 (setq-default kill-whole-line t)
