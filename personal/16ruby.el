@@ -1,6 +1,11 @@
 (require 'ruby-mode)
 (require 'ruby-end)
 
+(add-to-list 'auto-mode-alist 
+             '(("Rakefile" . ruby-mode)
+               ("Gemfile" . ruby-mode)
+               ("\\.ru$" . ruby-mode)))
+
 (add-hook 'ruby-mode-hook
           '(lambda ()
              (my-ruby-mode-key-bind)))

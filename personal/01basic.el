@@ -319,13 +319,7 @@ that was stored with ska-point-to-register."
    ("\\.css$" . css-mode)
    ("\\.cfm$" . html-mode)
    ("gnus" . emacs-lisp-mode)
-   ("\\.idl$" . idl-mode)
-   ("\\.hs$" . haskell-mode)
-   ("Rakefile" . ruby-mode)
-   ("Gemfile" . ruby-mode)
-   ("\\.ru" . ruby-mode)
-   ("\\.erl" . erlang-mode)
-   ("\\.groovy" . groovy-mode)))
+   ("\\.idl$" . idl-mode)))
 
 ;; Kill whole line
 (setq-default kill-whole-line t)
