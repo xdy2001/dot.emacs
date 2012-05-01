@@ -16,9 +16,14 @@
          "/usr/local/rvm/bin" ":"
          "/opt/local/bin" ":"
          "/usr/local/bin" ":"
+         "/usr/local/go/bin" ":"
          (getenv "PATH")))
 
-(setq exec-path (append '("~/bin" "/usr/local/rvm/bin" "/opt/local/bin" "/usr/local/bin") exec-path))
+(setq exec-path (append '("~/bin"
+                          "/usr/local/rvm/bin"
+                          "/opt/local/bin"
+                          "/usr/local/bin"
+                          "/usr/local/go/bin") exec-path))
 
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
                           ("gnu" . "http://elpa.gnu.org/packages/")
