@@ -102,6 +102,7 @@
 (require 'yasnippet)
 (setq yas/snippet-dirs '("~/.emacs.d/3rd/yasnippet/snippets"
                          "~/.emacs.d/personal/snippets"))
+(setq yas/trigger-key "C-'")
 (yas/global-mode 1)
 
 ;; Auto complete
