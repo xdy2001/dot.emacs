@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: class
-# key: cls
+# key: cl
 # --
-class ${1:name} {
+public class ${1:name} {
     $0
 }
