@@ -93,7 +93,9 @@
 
 (defmethod constructor :static ((api gh-api-v2) newname &rest args)
   (let ((obj (call-next-method)))
-    (gh-api-set-default-auth obj (funcall gh-api-v2-authenticator "auth"))
+    (gh-api-set-default-auth obj
+                             (or (oref obj :auth)
+                                 (funcall gh-api-v2-authenticator "auth")))
     obj))
 
 ;;;###autoload
@@ -110,7 +112,9 @@
 
 (defmethod constructor :static ((api gh-api-v3) newname &rest args)
   (let ((obj (call-next-method)))
-    (gh-api-set-default-auth obj (funcall gh-api-v3-authenticator "auth"))
+    (gh-api-set-default-auth obj
+                             (or (oref obj :auth)
+                                 (funcall gh-api-v3-authenticator "auth")))
     obj))
 
 (defclass gh-api-request ()
@@ -122,7 +126,8 @@
 (defclass gh-api-response ()
   ((data-received :initarg :data-received :initform nil)
    (data :initarg :data :initform nil)
-   (callbacks :initarg :callbacks :initform nil))
+   (callbacks :initarg :callbacks :initform nil)
+   (-api :initarg :-api :initform nil))
   "Class for API responses")
 
 (defun gh-api-json-decode (repr)
@@ -146,11 +151,13 @@
   (declare (special url-http-end-of-headers))
   (unwind-protect
       (with-current-buffer buffer
+        (logito:debug (oref resp :-api) "Response: \n%s" (buffer-string))
         (goto-char (1+ url-http-end-of-headers))
-        (oset resp :data (let ((raw (buffer-substring (point) (point-max))))
-                           (if transform
-                               (funcall transform (gh-api-json-decode raw))
-                             raw)))
+        (let ((raw (buffer-substring (point) (point-max))))
+          (oset resp :data
+                (if transform
+                    (funcall transform (gh-api-json-decode raw))
+                  raw)))
         (oset resp :data-received t))
     (kill-buffer buffer))
   (gh-api-response-run-callbacks resp)
@@ -163,7 +170,7 @@
       (error
        (if (or (null num) (zerop num))
            (signal (car err) (cdr err))
-         (logito:info "Retrying request %s %s"
+         (logito:info api "Retrying request %s %s"
                       (oref req :method) (oref req :url))
          (let ((num (1- num)))
            (gh-api-run-request api req transform resp num)))))))
@@ -245,14 +252,16 @@
                   url-request-method
                   url
                   url-request-extra-headers)
+    (logito:debug api "Data: %s"
+                  url-request-data)
     (if (oref api :sync)
-        (let* ((resp (or resp (gh-api-response "sync")))
+        (let* ((resp (or resp (gh-api-response "sync" :-api api)))
                (retry-data (list api req transformer resp
                                  (or num (oref api :num-retries)))))
           (with-current-buffer (url-retrieve-synchronously url)
             (gh-api-set-response nil retry-data))
           resp)
-      (let* ((resp (or resp (gh-api-response "async")))
+      (let* ((resp (or resp (gh-api-response "async" :-api api)))
              (retry-data (list api req transformer resp
                                (or num (oref api :num-retries)))))
         (url-retrieve url 'gh-api-set-response (list retry-data))
