@@ -262,8 +262,8 @@ that was stored with ska-point-to-register."
 (mouse-avoidance-mode 'animate)
 
 ;; Redo support
-(require 'redo+)
-(global-set-key (kbd "C-?") 'redo)
+;;(require 'redo+)
+;;(global-set-key (kbd "C-?") 'redo)
 
 ;; At most 80 charactors per line
 (set-fill-column 80)
