@@ -3,8 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("redo+-pkg.el" "redo+.el") (20267 57160
-;;;;;;  84132))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/redo+-1.16/redo+-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/redo+-1.16/redo+.el") (21048
+;;;;;;  13925 42542 0))
 
 ;;;***
 
