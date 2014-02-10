@@ -1,4 +1,4 @@
-(require `scala-mode-auto)
+(require `scala-mode2-autoloads)
 
 (add-to-list 'auto-mode-alist '("\\.sbt$" . scala-mode))
 
