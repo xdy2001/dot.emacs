@@ -1,4 +1,4 @@
-%(head_prefix)s
+r%(head_prefix)s
 %(head)s
 %(stylesheet)s
 %(body_prefix)s
