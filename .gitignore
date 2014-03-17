@@ -1,3 +1,2 @@
 *.elc
-archive-contents
-archives
+.DS_Store
