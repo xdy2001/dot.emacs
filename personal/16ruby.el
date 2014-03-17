@@ -1,7 +1,7 @@
 (require 'ruby-mode)
 (require 'ruby-end)
 
-(add-to-list 'auto-mode-alist '("\\(Rakefile\\|Gemfile\\|\\.ru$\\)" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\(Rakefile\\|Gemfile\\|.gemspec$\\|\\.ru$\\)" . ruby-mode))
 
 (add-hook 'ruby-mode-hook
           '(lambda ()
